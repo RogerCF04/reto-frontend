@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Seleccione uno o varios Género:</h4>
+        </div>
+        <div class="row col-md-8">
+            <div class="col-md-1 botonGeneros" *ngFor="let row of generos">
+                    <button [class]="row.btn" (click)="fFiltro(row.title)">{{row.title}}</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Búsqueda por Nombre:</h4>
+        </div>
+        <div class="col-md-8">
+            <input type="text" [(ngModel)]="filtroTexto" placeholder="Buscar" maxlength="50">
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Género</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of tablaFiltrado">
+                    <th scope="row">{{row.id}}</th>
+                    <td>{{row.title}}</td>
+                    <td>{{row.description}}</td>
+                    <td>{{row.genre}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
